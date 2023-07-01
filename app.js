@@ -5,6 +5,7 @@ const $btnSave = document.getElementById("btn-save");
 const $containerProducts = document.getElementById("items-container");
 const $containerAccount = document.getElementById("accountFinish")
 
+
 $btnSave.addEventListener("click", saveItem);
 $containerProducts.addEventListener("click", sendItem)
 
@@ -36,22 +37,43 @@ function sendItem(e){
 
     const newAccount = new Account(carShop);
     showAccount(newAccount);
+    showTotal(newAccount);
 }   
 
 
 function showAccount(newAccount){
+    $containerAccount.innerHTML = ''
     const productsAccount = newAccount.carShop
     const fragment = document.createDocumentFragment();
     const $templateAccount = document.getElementById("account").content
 
-    for(let id in productsAccount){
-        
-        productsAccount[id].forEach(product =>{ 
-            console.log(product);
-        })
+
+    
+    
+    for(let key in productsAccount){
+        const $amount = $templateAccount.querySelector(".table-row > .amount")
+        $amount.textContent = productsAccount[key].length
+        const $name = $templateAccount.querySelector(".table-row> .name")
+        $name.textContent = productsAccount[key][0].name
+        const $price = $templateAccount.querySelector(".table-row > .price")
+        let totalProduct = 0
+        for(let product of productsAccount[key]){
+            totalProduct += Number(product.price)
+        }
+        $price.textContent = totalProduct
+   
+
+
+        const clone = $templateAccount.cloneNode(true)
+        fragment.appendChild(clone)
     }
 
 
+    $containerAccount.appendChild(fragment)
+}
+function showTotal(newAccount){
+    const $total = document.getElementById("total")
+    $total.textContent =  newAccount.checkOut()
 }
 
 

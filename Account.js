@@ -17,8 +17,8 @@ export default class Account {
     checkOut(){
 
         for(let id in this.carShopping){
-            id.forEach(product =>{
-                this.total += product.price
+            this.carShopping[id].forEach(product => {
+                this.total += Number(product.price)
             })
         }
 

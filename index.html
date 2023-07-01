@@ -10,50 +10,58 @@
     <title>Tienda de compras bootstrap</title>
 </head>
 <body>
-    <!--All content-->
-    <div class="container-fluid row bg-primary ">
-        <!--Nav bar-->
-        <div class="row flex justify-content-center">
-            <nav class="navbar navbar-light bg-light col-md-10 col-sm-12">
-                <div class="container-fluid">
-                  <span class="navbar-brand mb-0 h1">Tiendita Don Pepito</span>
-                </div>
-              </nav>
+<!--All content-->
+<div class="container-fluid row ">
+  <!--Nav bar-->
+  <div class="row flex justify-content-center">
+      <nav class="navbar navbar-light bg-light col-md-10 col-sm-12">
+          <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Tiendita Don Pepito</span>
+          </div>
+        </nav>
+  </div>
+  <!--Main content -->
+  <main class="row flex justify-content-evenly gap-3 ">
+
+      <!--Add new item content-->
+      <div id="add-items" class="col-lg-4 bg-warning p-4"> 
+          <h4 class="mb-4">Agregar producto</h4>   
+          <div class="mb-3">
+              <label class="form-label">Nombre del producto</label>
+              <input type="text" class="form-control" id="txtName" placeholder="Ej: Arroz diana.">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Precio producto</label>
+              <input type="number" class="form-control" id="txtPrice" placeholder="Ej: 23000">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Descripciòn producto.</label>
+              <textarea class="form-control" id="txtDescription" rows="3" placeholder="Ej: Arroz bueno, bonito y barato."></textarea>
+            </div>
+            <button id="btn-save" class="btn btn-success"> Guardar </button>
+      </div>
+
+      <!--Finish account content -->
+      <div class="container-account col-lg-4 p-4 overflow-y-auto">
+        <h4>Total:</h4>
+        <h4 id="total">Resumen compra</h4>
+
+        <div id="accountFinish" class="">
         </div>
-        <!--Main content -->
-        <main class="row flex justify-content-evenly gap-3 ">
 
-            <!--Add new item content-->
-            <div id="add-items" class="col-lg-4 bg-warning p-4"> 
-                <h4 class="mb-4">Agregar producto</h4>   
-                <div class="mb-3">
-                    <label class="form-label">Nombre del producto</label>
-                    <input type="text" class="form-control" id="txtName" placeholder="Ej: Arroz diana.">
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Precio producto</label>
-                    <input type="number" class="form-control" id="txtPrice" placeholder="Ej: 23000">
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Descripciòn producto.</label>
-                    <textarea class="form-control" id="txtDescription" rows="3" placeholder="Ej: Arroz bueno, bonito y barato."></textarea>
-                  </div>
-                  <button id="btn-save" class="btn btn-success"> Guardar </button>
-            </div>
+      </div>
 
-            <!--Finish account content -->
-            <div id="accountFinish" class="col-lg-4 p-4 bg-danger">
-                <h4>Resumen compra</h4>
-            </div>
-            <!--Items available-->
-            <div id="items-container" class="col-lg-12 col-md-12 bg-info p-4 d-flex justify-content-evenly flex-wrap">
-            </div>
-        </main>
+
+</div>
+      <!--Items available-->
+      <div id="items-container" class="col-lg-12 col-md-12  p-4 d-flex justify-content-evenly flex-wrap">
+      </div>
+  </main>
 
 
 
 
-    </div>
+</div>
     <template id="card">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
@@ -67,26 +75,23 @@
           </div>
     </template>
     <template id="account">
-      <table class="table">
+      <table class="table ">
         <thead>
           <tr>
             <th scope="col">Cantidad</th>
             <th scope="col">Producto</th>
             <th scope="col">Precio</th>
-            <th scope="col">Eliminar</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr class="table-row">
             <th class="amount" scope="row"></th>
             <td class="name">Mark</td>
-            <td class="price">Otto</td>
-            <button class="btn btn-danger">
-              Eliminar
-            </button>
+            <td class="price">Otto</td>          
           </tr>
         </tbody>
       </table>
+
     </template>
     <script type="module" defender src="./app.js"></script>
 </body>
